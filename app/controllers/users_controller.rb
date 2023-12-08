@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def create
-    u = User.new create_params
-    u.save
+    u = User.create create_params
     render_resource u
   end
 
