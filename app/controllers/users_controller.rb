@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     u = User.new
     u.email = params[:email]
     u.password = params[:password]
+    u.password_confirmation = params[:password_confirmation]
     if u.save
       render json: u, status: 200
     else
