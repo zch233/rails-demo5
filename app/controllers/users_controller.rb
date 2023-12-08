@@ -1,13 +1,19 @@
 class UsersController < ApplicationController
   def create
-    u = User.new
-    u.email = params[:email]
-    u.password = params[:password]
-    u.password_confirmation = params[:password_confirmation]
-    if u.save
-      render json: u, status: 200
+    u = User.new create_params
+    u.save
+    render_resource u
+  end
+
+  def create_params
+    params.permit(:email, :password, :password_confirmation)
+  end
+
+  def render_resource(resource)
+    if resource.valid?
+      render json: resource, status: 200
     else
-      render json:u.errors, status: 400
+      render json: resource.errors, status: 400
     end
   end
 end
