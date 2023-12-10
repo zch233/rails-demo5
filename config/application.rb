@@ -17,8 +17,12 @@ require "action_cable/engine"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+# Load dotenv only in development or test environment
+if %w[development test].include? ENV['RAILS_ENV']
+  Dotenv::Railtie.load
+end
 
-module MorneyRails1
+module RailsDemo5
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
