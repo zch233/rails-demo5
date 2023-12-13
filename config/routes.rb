@@ -5,12 +5,13 @@ Rails.application.routes.draw do
   # root "articles#index"
   get '/hello', to: 'first#hello'
 
-  # get '/users', to: 'user#index'
-  # get '/users/:id', to: 'user#show'
-  # post '/users', to: 'user#create'
-  # delete '/users/:id', to: 'user#destory'
-  # patch '/users/:id', to: 'user#update'
+  # get '/users', to: 'users#index'
+  # get '/users/:id', to: 'users#show'
+  # post '/users', to: 'users#create'
+  # delete '/users/:id', to: 'users#destory'
+  # patch '/users/:id', to: 'users#update'
   # 上面五行等价于下面
   resource :users
   resource :sessions, only: [:create, :destroy]
+  get '/me', to: 'users#me'
 end
