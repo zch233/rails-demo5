@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # patch '/users/:id', to: 'users#update'
   # 上面五行等价于下面
   resource :users
-  resource :sessions, only: [:create, :destroy]
+  resource :sessions, only: [:create]
+  delete '/sessions', to: 'sessions#destroy'
   get '/me', to: 'users#me'
 end
