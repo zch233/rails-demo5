@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   # delete '/users/:id', to: 'users#destory'
   # patch '/users/:id', to: 'users#update'
   # 上面五行等价于下面
-  resource :users
-  resource :sessions, only: [:create]
+  resources :users
+  resources :sessions, only: [:create]
   delete '/sessions', to: 'sessions#destroy'
   get '/me', to: 'users#me'
+  resources :records
 end
