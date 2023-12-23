@@ -21,6 +21,12 @@ class RecordsController < ApplicationController
     end
   end
 
+  def update
+    if params[:id]
+      render_resource Record.update params[:id], create_params
+    end
+  end
+
   private
 
   def create_params
