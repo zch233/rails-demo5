@@ -4,7 +4,7 @@ class RecordsController < ApplicationController
   end
 
   def index
-    render_resources Record.all
+    render_resources Record.page(params[:page])
   end
 
   def show
