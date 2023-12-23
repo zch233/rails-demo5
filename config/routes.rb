@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   delete '/sessions', to: 'sessions#destroy'
   get '/me', to: 'users#me'
   resources :records
+  resources :tags
 end
