@@ -35,4 +35,10 @@ zh-CN:
               blank: 时间不能为空
             amount:
               blank: 金额不能为空
+        tag:
+          attributes:
+            icon:
+              blank: 图标不能为空
+            name:
+              blank: 名称不能为空
 
