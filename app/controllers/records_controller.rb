@@ -1,4 +1,6 @@
 class RecordsController < ApplicationController
+
+  before_action :must_sign_in
   def create
     render_resource Record.create create_params
   end
