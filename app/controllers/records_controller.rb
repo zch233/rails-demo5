@@ -2,7 +2,10 @@ class RecordsController < ApplicationController
 
   before_action :must_sign_in
   def create
-    render_resource Record.create create_params
+    r = Record.create create_params.merge user: current_user
+    render_resource r
+    t = Tag.find_by_id params[:tag_id]
+    RecordTag.create record: r, tag: t
   end
 
   def index
