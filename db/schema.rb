@@ -14,6 +14,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_23_131557) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "record_tags", force: :cascade do |t|
+    t.bigint "record_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_id"], name: "index_record_tags_on_record_id"
+    t.index ["tag_id"], name: "index_record_tags_on_tag_id"
+  end
+
   create_table "records", force: :cascade do |t|
     t.integer "category", limit: 2, null: false
     t.integer "amount", null: false
