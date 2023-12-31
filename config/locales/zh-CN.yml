@@ -41,4 +41,6 @@ zh-CN:
               blank: 图标不能为空
             name:
               blank: 名称不能为空
+            user:
+              required: 用户不能为空
 
